@@ -12,19 +12,26 @@ package a01043939.lab8.data;
  */
 public class Athlete {
 
-	private int lane;
 	private int bib;
 	private String country;
 	private String firstName;
 	private String lastName;
 	private double reactionTime;
-	private double result;
 
 	/**
-	 * @return the lane
+	 * @param firstName
+	 * @param lastName
+	 * @param bib
+	 * @param country
+	 * @param reactionTime
 	 */
-	public int getLane() {
-		return lane;
+	public Athlete(String firstName, String lastName, int bib, String country, double reactionTime) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.bib = bib;
+		this.country = country;
+		this.reactionTime = reactionTime;
 	}
 
 	/**
@@ -60,21 +67,6 @@ public class Athlete {
 	 */
 	public double getReactionTime() {
 		return reactionTime;
-	}
-
-	/**
-	 * @return the result
-	 */
-	public double getResult() {
-		return result;
-	}
-
-	/**
-	 * @param lane
-	 *            the lane to set
-	 */
-	public void setLane(int lane) {
-		this.lane = lane;
 	}
 
 	/**
@@ -115,14 +107,6 @@ public class Athlete {
 	 */
 	public void setReactionTime(double reactionTime) {
 		this.reactionTime = reactionTime;
-	}
-
-	/**
-	 * @param result
-	 *            the result to set
-	 */
-	public void setResult(double result) {
-		this.result = result;
 	}
 
 }

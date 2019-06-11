@@ -6,23 +6,10 @@
  */
 package a01043939.lab8.tests;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import org.junit.jupiter.api.Test;
-
-import a01043939.lab8.data.Athlete;
-
 /**
  * @author Aaron Schollen, A01043939
  *
  */
 class AthleteTest {
-
-	@Test
-	void testResult() {
-		Athlete runner = new Athlete();
-		runner.setResult(1.00);
-		assertEquals(1.00, runner.getResult());
-	}
 
 }
