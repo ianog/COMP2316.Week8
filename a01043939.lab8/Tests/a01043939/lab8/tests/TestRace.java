@@ -9,7 +9,7 @@ package a01043939.lab8.tests;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,9 +25,9 @@ class TestRace {
 	@Test
 	void testRaceConstructor() {
 		Race heat1 = new Race();
-		ArrayList<Athlete> lanes = new ArrayList<>();
-		lanes.add(new Athlete("Luke", "Skywalker", 1138, "Tatooine", 0.113));
-		lanes.add(new Athlete("Han", "Solo", 12, "Corellia", 0.110));
+		HashMap<Integer, Athlete> lanes = new HashMap<>();
+		lanes.put(1, new Athlete("Luke", "Skywalker", 1138, "Tatooine", 0.113));
+		lanes.put(2, new Athlete("Han", "Solo", 12, "Corellia", 0.110));
 		heat1.setLanes(lanes);
 		assertEquals("Luke", heat1.getLanes().get(0).getFirstName());
 		assertEquals("Solo", heat1.getLanes().get(1).getLastName());
@@ -36,8 +36,8 @@ class TestRace {
 	@Test
 	void testRaceResults() {
 		Race heat1 = new Race();
-		ArrayList<Athlete> lanes = new ArrayList<>();
-		lanes.add(new Athlete("Luke", "Skywalker", 1138, "Tatooine", 0.113));
+		HashMap<Integer, Athlete> lanes = new HashMap<>();
+		lanes.put(1, new Athlete("Luke", "Skywalker", 1138, "Tatooine", 0.113));
 		heat1.setLanes(lanes);
 		heat1.run();
 		assertNotNull(heat1.getResults().get(0));

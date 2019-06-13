@@ -6,6 +6,10 @@
  */
 package a01043939.lab8.data;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Random;
+
 /**
  * @author Aaron Schollen, A01043939
  *
@@ -107,6 +111,43 @@ public class Athlete {
 	 */
 	public void setReactionTime(double reactionTime) {
 		this.reactionTime = reactionTime;
+	}
+
+	private long getReactionInMS() {
+		return (long) (reactionTime * 100);
+	}
+
+	/**
+	 * 
+	 */
+	public double run() {
+		Random random = new Random();
+		long delay = 90L + random.nextInt(16);
+		LocalDateTime startTime = LocalDateTime.now();
+
+		waitForReactionTime();
+		for (int i = 0; i < 100; i++) {
+			try {
+				Thread.sleep(delay);
+			} catch (InterruptedException e) {
+				// We don't care if the thread has been interrupted
+			}
+
+		}
+		LocalDateTime endTime = LocalDateTime.now();
+		double runTime = startTime.until(endTime, ChronoUnit.SECONDS);
+		return runTime;
+	}
+
+	/**
+	 * 
+	 */
+	private void waitForReactionTime() {
+		try {
+			Thread.sleep(this.getReactionInMS());
+		} catch (InterruptedException e) {
+			// We don't care if the thread has been interrupted
+		}
 	}
 
 }
